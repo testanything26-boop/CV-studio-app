@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Unzip the uploaded bundle
         run: Expand-Archive -Path "windows-installer-bundle.zip" -DestinationPath "bundle"
@@ -25,7 +25,7 @@ jobs:
           & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "bundle/windows-installer/cv-studio.iss"
 
       - name: Upload Setup.exe
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: CVStudio-Windows-Setup
           path: bundle/windows-installer/Output/Setup-CVStudio-*.exe
